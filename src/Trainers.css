@@ -1,0 +1,9 @@
+.Trainers{
+    background-color:#E7E6DD;
+    min-height: 20px;
+    width:450px;
+    margin: 10px auto;   
+    border-radius:50px;
+    overflow: auto;
+  
+}

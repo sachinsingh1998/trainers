@@ -1,0 +1,68 @@
+.IndividualTrainer{
+    
+    background-color:#FFFFFF;
+    min-height: 200px;
+    width:400px;
+    margin: 100px auto ;       
+}
+
+p{
+color:#000000;
+
+}
+
+h2{
+    color: rgb(161, 102, 255);
+}
+
+* {
+    box-sizing: border-box;
+  }
+  
+  /* Create four equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 50% /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+  
+
+  img {
+    width: 150px;
+    border-radius: 50%;
+  }
+
+
+  #special ul{
+    list-style: none;
+  }
+  #special li{
+    display: inline;
+  }
+
+  .button {
+    background-color:rgb(161, 102, 255);;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 30%;
+  }

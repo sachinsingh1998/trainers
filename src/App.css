@@ -1,0 +1,16 @@
+body{
+  
+}
+
+.App{
+  background-color: rgb(161, 102, 255);
+  min-height: 100px;
+  width:500px;
+  margin: 50px auto;   
+  color:#fff;
+  overflow: auto;
+}
+
+h1{
+  color:#fff;
+}
