@@ -1,71 +1,47 @@
-# Getting Started with Create React App
+# COMP9517 Group Project – Aerial Scene Classification
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
 
-## Available Scripts
+This project explores various methods for classifying aerial landscapes into 15 distinct categories using the **SkyView** dataset from Kaggle. We developed and compared multiple techniques including traditional machine learning and deep learning architectures. One of our core approaches involved using **EfficientNetV2**, a modern CNN architecture known for its speed and performance efficiency.
 
-In the project directory, you can run:
+## File Structure
 
-### `npm start`
+- `Project_final.ipynb` – Main notebook integrating all methods, training pipelines, and evaluation metrics.
+- `README.md` – Documentation (this file).
+- Other Python utility scripts (if any) are for preprocessing, visualization, or training support.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Dataset
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+We used the [SkyView Dataset](https://www.kaggle.com/datasets/ankit1743/skyview-an-aerial-landscape-dataset) containing 800 images across 15 classes. The dataset was split 80-20 for training and testing respectively.
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Method Highlight: EfficientNetV2
 
-### `npm run build`
+### Description
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**EfficientNetV2-S** was used as one of the deep learning architectures. Key features include:
+- Compound scaling across depth, width, and resolution.
+- Incorporation of Squeeze-and-Excitation (SE) blocks for channel-wise attention.
+- Pretrained weights on ImageNet were leveraged for transfer learning.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Implementation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Loaded EfficientNetV2-S via `torchvision.models`.
+- Replaced the final classification head to output logits for 15 classes.
+- Used transfer learning with frozen early layers; fine-tuned deeper layers.
+- Applied data augmentation and early stopping to improve generalization and avoid overfitting.
 
-### `npm run eject`
+### Libraries Used
+- `torch`, `torchvision`, `tqdm`, `matplotlib`, `numpy`, and `scikit-learn`.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+> Pretrained weights and model architecture were sourced from [torchvision official models](https://pytorch.org/vision/stable/models.html).
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## How to Run
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-"# Yoboshu" 
+1. Clone the repository or download the notebook.
+2. Install required libraries:
+   ```bash
+   pip install torch torchvision scikit-learn matplotlib tqdm
